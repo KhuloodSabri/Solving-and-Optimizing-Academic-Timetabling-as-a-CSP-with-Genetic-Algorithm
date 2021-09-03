@@ -16,6 +16,7 @@
    7. [Fitness Function](#FitnessFunction)
 5. [Performance and Evaluation](#eval)
 6. [How to Run](#howtorun)
+7. [References](#References)
 
 <a name="intro"></a>
 ## Introduction
@@ -288,3 +289,17 @@ a new initial population.
     * If it is a normal room: {ROOM NAME},lecture
     * If it is a laboratory: {ROOM NAME},lab,{CODE OF LAB COURSE THAT CAN BE TAKEN IN THIS LABORATORY} 
  * Run the code :) 
+
+<a name="References"></a>
+## References
+1. http://www.secretgeek.net/content/bambrilg.pdf , 
+accessed on Nov 23,2018.
+2. https://www.academia.edu/2876050/Solving_Unive
+rsity_Timetabling_As_a_Constraint_Satisfaction_P
+roblem_with_Genetic_Algorithm, accessed on 23
+Nov, 2018.
+3. https://towardsdatascience.com/introduction-togenetic-algorithms-including-example-codee396e98d8bf3, Nov 25,2018.
+4. https://www.tutorialspoint.com/genetic_algorithms/
+accessed on Nov 25, 2018.
+5. https://towardsdatascience.com/how-to-define-afitness-function-in-a-genetic-algorithmbe572b9ea3b4, Nov 28,2018
+
