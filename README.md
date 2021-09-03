@@ -1,5 +1,23 @@
+
 # Solving-and-Optimizing-Academic-Timetabling-as-a-CSP-with-Genetic-Algorithm
 
+![Media1](https://user-images.githubusercontent.com/25118892/132069435-ee0e39b9-b102-42e6-b9f0-a97fe95f2454.gif)
+
+## Table of Content
+1. [Introduction](#intro)
+2. [Problem specification](#prblmspec)
+3. [Problem Formalization](#prblmform)
+   1. [Chromosome Representation](#ChromosomeRepresentation)
+   2. [Population](#Population)
+   3. [Parents Selection](#ParentsSelection)
+   4. [Crossover Operators](#CrossoverOperators)
+   5. [Mutation Operators](#MutationOperators)
+   6. [Removing Criteria](#RemovingCriteria)
+   7. [Fitness Function](#FitnessFunction)
+5. [Performance and Evaluation](#eval)
+6. [How to Run](#howtorun)
+
+<a name="intro"></a>
 ## Introduction
 Developing timetables for scheduling courses of 
 educational institutions is considered to be one of 
@@ -13,6 +31,7 @@ approach of representing timetabling as a constraint
 satisfaction problem that is then solved using the 
 Genetic Algorithm (GA).
 
+<a name="prblmspec"></a>
 ## Problem specification
 University timetabling problem could be defined as 
 a set of constraints that are usually divided into two 
@@ -35,7 +54,9 @@ be assigned on Sundays, Mondayorand Wednesday at 2:00 or on Tuesdays or Thursday
 or 2.
 * A list of available rooms and labs available.
 
+<a name="prblmform"></a>
 ## Problem Formalization
+<a name="ChromosomeRepresentation"></a>
 ### Chromosome Representation
 To solve the timetabling problem using genetic 
 algorithm, the schedule elements need to be 
@@ -49,11 +70,12 @@ three values: Instructor, Room and Time Slot.
 According to this representation, the length of the 
 chromosome is given by the following formula:
 
-<img src="https://github.com/KhuloodSabri/Solving-and-Optimizing-Academic-Timetabling-as-a-CSP-with-Genetic-Algorithm/blob/main/imgs/ChromosomeLengthFormula.PNG" width="300">
+<img src="https://github.com/KhuloodSabri/Solving-and-Optimizing-Academic-Timetabling-as-a-CSP-with-Genetic-Algorithm/blob/main/imgs/ChromosomeLengthFormula.PNG" width="250">
 
 Where n is the number of courses and S is the 
 number of sections for course ci.
 
+<a name="Population"></a>
 ### Population
 An initial population of size 1000 is generated. Each 
 section is assigned randomly to one instructor who
@@ -69,6 +91,7 @@ number of chromosomes are removed according to
 a criterion discussed later, in order to maintain the 
 size limit to 3000 chromosomes.
 
+<a name="ParentsSelection"></a>
 ### Parents Selection
 Two chromosomes are selected every iteration to 
 generate two new children (off-springs). The 
@@ -79,6 +102,7 @@ chromosomes of it are chosen. The size of the sub-group here is 60% of the popul
 experiment, smaller sizes give worse results since 
 the randomness in selection increases. 
 
+<a name="CrossoverOperators"></a>
 ### Crossover Operators
 Crossover is applied with a high rate equal to 0.6 in 
 order to continuously generate new off-springs. 
@@ -102,6 +126,7 @@ the classical one-point cross over, in order to
 explore more solutions. Experimentally, they give 
 better results in our problem.
 
+<a name="MutationOperators"></a>
 ### Mutation Operators
 Mutation is used with a lower rate equal to 0.3, in 
 order to avoid convergence to local optima and get 
@@ -115,6 +140,7 @@ value. (i.e. change either instructor, time slot or
 room value of a gene rather than changing the 
 whole gene).
 
+<a name="RemovingCriteria"></a>
 ### Removing Criteria
 As said earlier, there is a need to get rid of some 
 chromosomes in order to avoid infinitely growing 
@@ -129,6 +155,7 @@ selected subgroup is 20% of the population size.
 Larger sizes experimentally do not lead to any better 
 results.
 
+<a name="FitnessFunction"></a>
 ### Fitness Function
 Fitness function evaluates how close a given 
 solution is to the optimum solution of the desired 
@@ -215,7 +242,8 @@ the number of off-days per week for instructor i.
 
 &emsp;&emsp;<img src="https://github.com/KhuloodSabri/Solving-and-Optimizing-Academic-Timetabling-as-a-CSP-with-Genetic-Algorithm/blob/main/imgs/FifthSoftConstraintFormula.PNG" width="400">
 
-# Performance and Evaluation
+<a name="eval"></a>
+## Performance and Evaluation
 Our program usually satisfies all the hard 
 constraints in around 12000 iterations (fitness = 60). 
 It usually satisfies 85% of the hard and soft 
@@ -247,3 +275,16 @@ progress. If the count is over some limit (30000
 iterations), and the fitness is not good enough yet 
 (less than 60), the current population is replaced by 
 a new initial population.
+
+<a name="howtorun"></a>
+## How to Run
+* Make sure you have javafx installed
+* Clone the project
+* Open this path (Codes\projectAI_lastVersion\) in Eclipe 
+* You need three input txt files (you can find examples in Codes\projectAI_lastVersion\)
+  * Courses -> Each line represents {COURSE NAME},{COURSE CODE},{NUMBER OF SECTIONS}
+  * Instructors -> Each line represents {INSTRUCTOR NAME}-{CODES OF HIS FAVOURITE COURSES SEPERATED BY COMMAS}
+  * Rooms -> Each line represents:
+    * If it is a normal room: {ROOM NAME},lecture
+    * If it is a laboratory: {ROOM NAME},lab,{CODE OF LAB COURSE THAT CAN BE TAKEN IN THIS LABORATORY} 
+ * Run the code :) 
